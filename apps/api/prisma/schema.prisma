@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,12 +7,179 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Sample {
-  id        Int      @id @default(autoincrement())
-  name      String
-  code      String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model User {
+  id              Int           @id @default(autoincrement())
+  name            String
+  email           String        @unique
+  phone           Int
+  password        Int           @unique
+  address         String
+  profile_picture String
+  referral        String        @unique
+  roles           Role
+  createAt        DateTime      @default(now())
+  updateAt        DateTime      @updatedAt
+  userPoints      UserPoint[]
+  transactions    Transaction[]
+  user_rewards    User_Reward[]
+  user_vouchers   UserVoucher[]
+  reviews         Review[]
+  events          Event[]
 
-  @@map("samples") // if you want to use snake_case format
+  @@map("users")
+}
+
+enum Role {
+  Admin
+  Customer
+}
+
+model User_Reward {
+  id        Int          @id @default(autoincrement())
+  status    StatusReward
+  createAt  DateTime     @default(now())
+  updateAt  DateTime     @updatedAt
+  user      User         @relation(fields: [userId], references: [id])
+  userId    Int
+  reward_id Reward       @relation(fields: [rewardId], references: [id])
+  rewardId  Int
+
+  @@map("user_rewards")
+}
+
+enum StatusReward {
+  Used
+  Unused
+}
+
+model Reward {
+  id           Int           @id @default(autoincrement())
+  name         String
+  code         String        @unique
+  quota        Int
+  nominal      Int
+  claimed      String
+  exp_date     String
+  createAt     DateTime      @default(now())
+  updateAt     DateTime      @updatedAt
+  user_rewards User_Reward[]
+
+  @@map("rewards")
+}
+
+model UserVoucher {
+  id       Int           @id @default(autoincrement())
+  status   StatusVoucher
+  createAt DateTime      @default(now())
+  updateAt DateTime      @updatedAt
+  user     User          @relation(fields: [userId], references: [id])
+  userId   Int
+
+  voucher   Voucher @relation(fields: [voucherId], references: [id])
+  voucherId Int
+
+  @@map("user_vouchers")
+}
+
+enum StatusVoucher {
+  Used
+  Unused
+}
+
+model Voucher {
+  id          Int           @id @default(autoincrement())
+  name        String
+  code        String        @unique
+  quota       Int
+  claimed     String
+  nominal     Int
+  exp_date    String
+  // event_id (fk)
+  createAt    DateTime      @default(now())
+  updateAt    DateTime      @updatedAt
+  UserVoucher UserVoucher[]
+
+  @@map("vouchers")
+}
+
+model UserPoint {
+  id       Int      @id @default(autoincrement())
+  points   Int
+  exp_date String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @unique
+
+  @@map("user_points")
+}
+
+model Review {
+  id       Int      @id @default(autoincrement())
+  comment  String
+  rating   String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  user     User     @relation(fields: [userId], references: [id])
+  userId   Int
+  event_id Event    @relation(fields: [eventId], references: [id])
+  eventId  Int
+
+  @@map("reviews")
+}
+
+model Transaction {
+  id             Int           @id @default(autoincrement())
+  qty            Int
+  status         StatusPayment
+  total          Int
+  payment_method PaymentMethod
+  payment_proof  Boolean?
+  voucher_used   Boolean?      @default(false)
+  reward_used    Boolean?      @default(false)
+  point_user     Boolean?      @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  event_id Event @relation(fields: [eventId], references: [id])
+  eventId  Int
+
+  @@map("transactions")
+}
+
+enum PaymentMethod {
+  QRIS
+  Bank_Transfer
+}
+
+enum StatusPayment {
+  Accepted
+  Rejected
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  name        String
+  location    String
+  start_date  String
+  end_date    String
+  dicount     String
+  price       String
+  thumbnail   String
+  description String
+  quota       String
+  booked      String
+  createAt    DateTime @default(now())
+  updateAt    DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id])
+  userId       Int
+  transactions Transaction[]
+  reviews      Review[]
+
+  @@map("events")
 }
