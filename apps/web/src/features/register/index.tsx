@@ -1,6 +1,4 @@
 'use client';
-import useRegister from '@/hooks/api/auth/useRegister';
-import { Role } from '@/types/user';
 import {
   Box,
   Button,

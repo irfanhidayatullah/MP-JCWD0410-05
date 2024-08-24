@@ -1,7 +1,7 @@
 import { Request } from 'express';
 import multer, { FileFilterCallback } from 'multer';
 
-export const uploader = (fileLimit: number) => {
+export const uploader = (fileLimit?: number) => {
   const storage = multer.memoryStorage();
 
   const fileFilter = (
@@ -10,7 +10,7 @@ export const uploader = (fileLimit: number) => {
     cb: FileFilterCallback,
   ) => {
     const extAllowed = /\.(jpg|jpeg|png)$/;
-    const isExtMatch = file.originalname.toLowerCase().match(extAllowed);
+    const isExtMatch = file.originalname.toLocaleLowerCase().match(extAllowed);
     if (isExtMatch) {
       cb(null, true);
     } else {
@@ -19,7 +19,7 @@ export const uploader = (fileLimit: number) => {
     }
   };
 
-  const limits = { fileSize: fileLimit * 5 * 1024 * 1024 }; // default 5mb
+  const limits = { fileSize: fileLimit || 5 * 1024 * 1024 }; // default 5mb
 
   return multer({ storage, fileFilter, limits });
 };

@@ -49,9 +49,7 @@ const Navbar = () => {
               _focus={{ boxShadow: 'none' }}
             >
               <HStack>
-                <Avatar size={'md'}>
-                  {session.data?.user.profile_picture}
-                </Avatar>
+                <Avatar size={'md'} src={session.data?.user.profile_picture} />
 
                 <VStack
                   display={{ base: 'none', md: 'flex' }}
@@ -61,10 +59,8 @@ const Navbar = () => {
                 >
                   <Text fontSize="m" fontWeight="semibold">
                     {session.data?.user.name}
-                    {session.data?.user.name}
                   </Text>
                   <Text fontSize="s" color="#E86B32" fontWeight="medium">
-                    {session.data?.user.roles}
                     {session.data?.user.roles}
                   </Text>
                 </VStack>
