@@ -1,4 +1,3 @@
-import { getEventsService } from '@/services/explore/get-event.service';
 import { getTransactionsService } from '@/services/transactions-admin/get-transactions.service';
 import { NextFunction, Request, Response } from 'express';
 

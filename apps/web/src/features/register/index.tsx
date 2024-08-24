@@ -15,6 +15,8 @@ import Link from 'next/link';
 import React from 'react';
 
 import { RegisterSchema } from './schemas/registerSchema';
+import useRegister from '@/hooks/api/auth/useRegister';
+import { Role } from '@/types/user';
 
 const RegisterUserPage = () => {
   const { mutateAsync: register, isPending } = useRegister();
