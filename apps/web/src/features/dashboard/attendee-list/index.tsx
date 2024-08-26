@@ -19,6 +19,27 @@ import { Loader2 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
+('use client');
+import Pagination from '@/components/Pagination';
+import useGetEvents from '@/hooks/api/event/useGetEvents';
+import useGetAttendeeList from '@/hooks/attendee-list/useGetAttendeeList';
+import {
+  Box,
+  Container,
+  Flex,
+  Select,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react';
+import { Loader2 } from 'lucide-react';
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+
 const AttendeeListPage = () => {
   const session = useSession();
   const [eventId, setEventId] = useState<number | undefined>(undefined);
@@ -28,6 +49,8 @@ const AttendeeListPage = () => {
     take: 100,
   });
   const { data: attendeeList } = useGetAttendeeList({ eventId, page, take: 5 });
+  console.log(attendeeList);
+
   const onPageChange = ({ selected }: { selected: number }) => {
     setPage(selected + 1);
   };
