@@ -1,15 +1,19 @@
-import ProfilePage from '@/features/profile';
+import TransactionDetailsPage from '@/features/transaksi/[id]';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import async from 'react-select/dist/declarations/src/async/index';
 
-const ProfileUser = async () => {
+const Transaction = async () => {
   const session = await auth();
 
   if (session?.user.roles !== 'Customer') {
     return redirect('/register');
   }
-  return <ProfilePage />;
+  return (
+    <div>
+      <TransactionDetailsPage />
+    </div>
+  );
 };
 
-export default ProfileUser;
+export default Transaction;
