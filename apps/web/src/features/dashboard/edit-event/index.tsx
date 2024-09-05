@@ -18,6 +18,7 @@ const EditEventPage = () => {
         borderRadius="25px"
         mx="auto"
         maxW="700px"
+        alt="background banner"
       />
       <Heading textAlign="center" py={7}>
         Nama Event

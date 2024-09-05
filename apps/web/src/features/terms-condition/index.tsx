@@ -32,7 +32,11 @@ const TermsConditionPage = () => {
           </Text>
           <Grid templateColumns="1fr 1fr" mt="50px">
             <GridItem m="auto">
-              <Image src="/Icon_Pembelian Tiket.svg" w="150px" />
+              <Image
+                src="/Icon_Pembelian Tiket.svg"
+                w="150px"
+                alt="Icon Pembelian Tiket"
+              />
             </GridItem>
             <GridItem m="auto">
               <Heading fontSize="xl" textAlign="center">
@@ -75,7 +79,11 @@ const TermsConditionPage = () => {
               </UnorderedList>
             </GridItem>
             <GridItem m="auto">
-              <Image src="/Icon_Akses Masuk.svg" w="150px" />
+              <Image
+                src="/Icon_Akses Masuk.svg"
+                w="150px"
+                alt="Icon Akses Masuk"
+              />
             </GridItem>
           </Grid>
 
@@ -124,13 +132,21 @@ const TermsConditionPage = () => {
               </UnorderedList>
             </GridItem>
             <GridItem m="auto">
-              <Image src="/Icon_Pengambilan Foto dan Video.svg" w="150px" />
+              <Image
+                src="/Icon_Pengambilan Foto dan Video.svg"
+                w="150px"
+                alt="Icon Pengambilan Foto dan Video"
+              />
             </GridItem>
           </Grid>
 
           <Grid templateColumns="1fr 1fr" mt="150px">
             <GridItem m="auto">
-              <Image src="/Icon_Penyelenggaraan Acara.svg" w="150px" />
+              <Image
+                src="/Icon_Penyelenggaraan Acara.svg"
+                w="150px"
+                alt="Icon Penyelenggaraan Acara"
+              />
             </GridItem>
             <GridItem m="auto">
               <Heading fontSize="xl" textAlign="center">
@@ -168,13 +184,18 @@ const TermsConditionPage = () => {
               </UnorderedList>
             </GridItem>
             <GridItem m="auto">
-              <Image src="/Icon_Kebijakan Privasi.svg" w="150px" />
+              <Image
+                src="/Icon_Kebijakan Privasi.svg"
+                w="150px"
+                alt="Icon Kebijakan Privasi"
+              />
             </GridItem>
           </Grid>
           <Grid templateColumns="1fr 1fr" mt="150px">
             <GridItem m="auto">
               <Image
                 src="/Icon_Penolakan dan Pembatasan Tanggung Jawab.svg"
+                alt="Icon Penolakan dan Pembatasan Tanggung Jawab"
                 w="150px"
               />
             </GridItem>
@@ -211,7 +232,11 @@ const TermsConditionPage = () => {
               </UnorderedList>
             </GridItem>
             <GridItem m="auto">
-              <Image src="/Icon_Perubahan Syarat dan Ketentuan.svg" w="150px" />
+              <Image
+                src="/Icon_Perubahan Syarat dan Ketentuan.svg"
+                w="150px"
+                alt="Icon Perubahan Syarat dan Ketentuan"
+              />
             </GridItem>
           </Grid>
 

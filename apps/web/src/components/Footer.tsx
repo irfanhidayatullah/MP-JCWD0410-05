@@ -40,6 +40,7 @@ const Footer = () => {
                   <Image
                     src="/Logo_Festivity_3.svg"
                     w={{ base: '100px', md: '150px' }}
+                    alt="Logo Festivity"
                   />
                 </Link>
                 <Text
@@ -63,9 +64,21 @@ const Footer = () => {
                   Tetap terhubung dengan kami
                 </Heading>
                 <Box mt={{ base: '10px', md: '20px' }} display="flex" gap={3}>
-                  <Image src="/Logo_Instagram.svg" w="35px" />
-                  <Image src="/Logo_WhatsApp.svg" w="35px" />
-                  <Image src="/Logo_Facebook.svg" w="35px" />
+                  <Image
+                    src="/Logo_Instagram.svg"
+                    w="35px"
+                    alt="Logo_Instagram"
+                  />
+                  <Image
+                    src="/Logo_WhatsApp.svg"
+                    w="35px"
+                    alt="Logo_WhatsApp"
+                  />
+                  <Image
+                    src="/Logo_Facebook.svg"
+                    w="35px"
+                    alt="Logo_Facebook"
+                  />
                 </Box>
               </Box>
             </GridItem>

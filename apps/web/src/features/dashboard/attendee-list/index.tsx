@@ -58,7 +58,7 @@ const AttendeeListPage = () => {
         >
           <option value="">all</option>;
           {events?.data.map((event) => {
-            return <option value={event.id}>{event.name}</option>;
+            return <option key={event.id}>{event.name}</option>;
           })}
         </Select>
       </Flex>

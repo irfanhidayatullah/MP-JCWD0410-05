@@ -31,6 +31,7 @@ const EventsPage = () => {
               <Image
                 src="https://assets.loket.com/neo/production/images/banner/20240715202722_669523ba5fa58.jpg"
                 borderRadius="25px"
+                alt="banner"
                 p={3}
               ></Image>
               <Box p={3}>
@@ -101,6 +102,7 @@ const EventsPage = () => {
               <Image
                 src="https://assets.loket.com/neo/production/images/banner/20240729065241.png"
                 borderRadius="25px"
+                alt="banner"
                 p={3}
               ></Image>
               <Box p={3}>

@@ -27,7 +27,7 @@ const ForgotPasswordPage = () => {
         borderTopRadius="25px"
       >
         <Link href="/">
-          <Image src="/Logo_Festivity_3.svg" w="100px" />
+          <Image src="/Logo_Festivity_3.svg" w="100px" alt="Logo Festivity" />
         </Link>
       </Container>
       <Container

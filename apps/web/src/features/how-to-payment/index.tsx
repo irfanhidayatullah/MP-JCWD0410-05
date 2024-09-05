@@ -121,19 +121,19 @@ const HowToPaymentPage = () => {
             <Box mt="50px">
               <Heading fontSize="xl">Metode Pembayaran</Heading>
               <Flex align="center" gap={3} mt="15px">
-                <Image src="/Logo_BCA.svg" w="75px" />
+                <Image src="/Logo_BCA.svg" w="75px" alt="logo BCA" />
                 <Text fontSize="19px">
                   1234567890 a.n PT Festival Activity Indonesia
                 </Text>
               </Flex>
               <Flex align="center" gap={3} mt="15px">
-                <Image src="/Logo_Mandiri.svg" w="75px" />
+                <Image src="/Logo_Mandiri.svg" w="75px" alt="Logo Mandiri" />
                 <Text fontSize="19px">
                   0987654321 a.n PT Festival Activity Indonesia
                 </Text>
               </Flex>
               <Flex align="center" gap={3} mt="15px">
-                <Image src="/Logo_BNI.svg" w="75px" />
+                <Image src="/Logo_BNI.svg" w="75px" alt="Logo BNI" />
                 <Text fontSize="19px">
                   5432167890 a.n PT Festival Activity Indonesia
                 </Text>

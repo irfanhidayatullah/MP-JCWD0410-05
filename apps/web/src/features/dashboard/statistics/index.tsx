@@ -1,27 +1,19 @@
 'use client';
 
-import { Line } from 'react-chartjs-2';
+import { Box, Container, Divider } from '@chakra-ui/react';
 import {
-  Chart as ChartJS,
   CategoryScale,
+  Chart as ChartJS,
+  Legend,
   LinearScale,
-  PointElement,
   LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
-import {
-  Box,
-  Container,
-  Divider,
-  Flex,
-  Grid,
-  GridItem,
-  Select,
-} from '@chakra-ui/react';
-import { DateRangePicker } from 'react-date-range';
 import { useState } from 'react';
+import { Line } from 'react-chartjs-2';
+import { DateRangePicker, RangeKeyDict } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
@@ -51,17 +43,28 @@ const lineChartData = {
   ],
 };
 
+interface DateRangeState {
+  startDate: Date | undefined;
+  endDate: Date | undefined;
+  key: string | undefined;
+}
+
 const StatisticsPage = () => {
   const options = {};
   const data = {};
-  const [date, setDate] = useState({
+  const [date, setDate] = useState<DateRangeState>({
     startDate: new Date(),
     endDate: new Date(),
     key: 'selection',
   });
 
-  const handleChange = (ranges) => {
-    setDate(ranges.selection);
+  const handleChange = (ranges: RangeKeyDict) => {
+    const { selection } = ranges;
+    setDate({
+      startDate: selection.startDate,
+      endDate: selection.endDate,
+      key: selection.key,
+    });
   };
 
   return (

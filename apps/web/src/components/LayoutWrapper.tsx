@@ -29,7 +29,12 @@ const LayoutWrapper = ({ children }: PropsWithChildren) => {
     <Flex>
       <Box w="300px" bg="#003249" color="white" px={7}>
         <Link href="/dashboard">
-          <Image src="/Logo_Festivity_3.svg" w="175px" mt="50px" />
+          <Image
+            src="/Logo_Festivity_3.svg"
+            w="175px"
+            mt="50px"
+            alt="Logo Festivity"
+          />
         </Link>
         <Flex direction="column" mt="70px">
           <Link href="/dashboard">
